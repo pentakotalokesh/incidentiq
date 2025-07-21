@@ -3,12 +3,14 @@ import dotenv from "dotenv";
 import bodyParser from "body-parser";
 import mongoose from "mongoose";
 import logsRouter from "./routes/logs.js";
+import jiraRouter from "./routes/jira.js";
 
 dotenv.config();
 const app = express();
 
 app.use(bodyParser.json());
 app.use("/logs", logsRouter);
+app.use("/jira", jiraRouter);
 
 const PORT = process.env.PORT || 4000;
 const MONGO_URI = process.env.MONGO_URI;
